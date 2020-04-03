@@ -24,7 +24,7 @@ const routes = [
       {path:'/items/edit/:id',component:ItemEdit,props:true},
       {path:'/heroes/create',component:HeroEdit},
       {path:'/heroes/list',component:HeroList},
-      {path:'/heros/edit/:id',component:HeroEdit,props:true},
+      {path:'/heroes/edit/:id',component:HeroEdit,props:true},
     ]
   },
   

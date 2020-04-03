@@ -54,6 +54,7 @@ export default {
         },
         async afterUpload(res){
         //原来是没有icon属性的，后面想加上的话最好用set语法
+        //当然也可以直接再model里面把需要用的数据先统一定义好
         this.$set(this.model,'icon',res.url)
         }
     },
