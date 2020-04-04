@@ -9,9 +9,15 @@
                 <el-input v-model="model.title"></el-input>
             </el-form-item>
             <el-form-item label="分类">
-                <el-select v-model="model.categories" placeholder="请选择">
+                <!--element选择器一个属性multiple，加上便允许多选-->
+                <el-select v-model="model.categories" placeholder="请选择" multiple>
                     <el-option v-for="item in categories" :key="item._id" :value="item._id" :label="item.name"></el-option>
                 </el-select>
+            </el-form-item>
+            <el-form-item label="难度">
+                <div class="block">
+                    <el-rate v-model="model.scores.difficult" :max=10></el-rate>
+                </div>
             </el-form-item>
             <el-form-item label="头像">
                 <el-upload
@@ -38,12 +44,20 @@ export default {
     data(){
         return {
             categories:[],
-            model:{},
+            model:{
+                name:'',
+                avatar:'',
+                scores:{},
+                value1: null,
+                value2: null,
+                
+            },
         }
     },
     methods:{
         async fetchCategories(){
             const res=await this.$http.get('rest/categories')
+            
             this.categories=res.data
         },
         async save(){        
@@ -63,6 +77,7 @@ export default {
         },
         async fetch(){
             const res=await this.$http.get(`rest/heroes/${this.id}`);
+            // this.model=Object.assign({},res.data)
             this.model=res.data;
         },
         async afterUpload(res){

@@ -20,7 +20,9 @@ import {Input} from 'element-ui'
 import {Select} from 'element-ui'
 import {Option} from 'element-ui'
 import {Upload} from 'element-ui'
+import {Rate} from 'element-ui'
 
+Vue.use(Rate)
 Vue.use(Upload)
 Vue.use(Select)
 Vue.use(Option)
