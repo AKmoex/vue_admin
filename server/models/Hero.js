@@ -16,8 +16,8 @@ const heroSchema=new Schema({
     scores:{
         difficult:{type:Number},
         skills:{type:Number},
-        attack:{type:String},
-        survive:{type:String}
+        attack:{type:Number},
+        survive:{type:Number}
     },
     skills:[{
         icon:{type:String},

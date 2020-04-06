@@ -21,7 +21,15 @@ import {Select} from 'element-ui'
 import {Option} from 'element-ui'
 import {Upload} from 'element-ui'
 import {Rate} from 'element-ui'
+import {Tabs} from 'element-ui'
+import {TabPane} from 'element-ui'
+import {Row} from 'element-ui'
+import {Col} from 'element-ui'
 
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(TabPane)
+Vue.use(Tabs)
 Vue.use(Rate)
 Vue.use(Upload)
 Vue.use(Select)
