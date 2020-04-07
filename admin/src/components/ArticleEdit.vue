@@ -10,8 +10,8 @@
             <el-form-item label="标题" label-width="80px">
                 <el-input v-model="model.title"></el-input>
             </el-form-item>
-            <el-form-item label="文章详情" label-width="80px">
-                <el-input type="textarea" v-model="model.body"></el-input>
+            <el-form-item label="详情" label-width="80px">
+                <vue-editor v-model="model.body"></vue-editor>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" native-type="submit">保存更改</el-button>
@@ -20,10 +20,14 @@
     </div>    
 </template>
 <script>
+import { VueEditor } from "vue2-editor";
 /* eslint-disable */
 export default {
     props:{
         id:{}
+    },
+    components: {
+        VueEditor
     },
     data(){
         return {
