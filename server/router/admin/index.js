@@ -14,7 +14,7 @@ module.exports=app=>{
     })
     router.get('/',async(req,res)=>{
         let queryOptions={}
-        if(req.Model.modelName=='Category'){
+        if(req.Model.modelName=='Category'||req.Model.modelName=='Article'){
             queryOptions.populate='parent'
         }
         const items=await req.Model.find().setOptions(queryOptions).limit(10);

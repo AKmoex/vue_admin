@@ -91,12 +91,15 @@
                             <el-form-item label="小提示">
                                 <el-input type="textarea" v-model="item.tips"></el-input>
                             </el-form-item>
+                            <el-form-item>
+                                <el-button type="danger" @click="model.skills.splice(index,1)">删除</el-button>
+                            </el-form-item>
                         </el-col>
                     </el-row>
                 </el-tab-pane>
             </el-tabs>
             <el-form-item>
-                <el-button type="primary" native-type="submit" style="margin-top:1rem;">保存更改</el-button>
+                <el-button size="small" type="primary" native-type="submit" style="margin-top:1rem;">保存更改</el-button>
             </el-form-item>
             
         </el-form>
@@ -159,7 +162,7 @@ export default {
         async afterUpload(res){
         //原来是没有icon属性的，后面想加上的话最好用set语法
         this.$set(this.model,'avatar',res.url)
-        }
+        },
     },
     created(){
         this.fetchCategories()

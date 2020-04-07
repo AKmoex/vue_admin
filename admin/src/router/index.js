@@ -7,24 +7,33 @@ import ItemEdit from '../components/ItemEdit.vue'
 import ItemList from '../components/ItemList.vue'
 import HeroEdit from '../components/HeroEdit.vue'
 import HeroList from '../components/HeroList.vue'
+import ArticleEdit from '../components/ArticleEdit.vue'
+import ArticleList from '../components/ArticleList.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+
     name: 'Main',
     component: Main,
     children:[
       {path:'/categories/create',component:CategoryEdit},
       {path:'/categories/list',component:CategoryList},
       {path:'/categories/edit/:id',component:CategoryEdit,props:true},
+      
       {path:'/items/create',component:ItemEdit},
       {path:'/items/list',component:ItemList},
       {path:'/items/edit/:id',component:ItemEdit,props:true},
+      
       {path:'/heroes/create',component:HeroEdit},
       {path:'/heroes/list',component:HeroList},
       {path:'/heroes/edit/:id',component:HeroEdit,props:true},
+
+      {path:'/articles/create',component:ArticleEdit},
+      {path:'/articles/list',component:ArticleList},
+      {path:'/articles/edit/:id',component:ArticleEdit,props:true},
     ]
   },
   
