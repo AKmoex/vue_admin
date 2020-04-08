@@ -9,6 +9,8 @@ import HeroEdit from '../components/HeroEdit.vue'
 import HeroList from '../components/HeroList.vue'
 import ArticleEdit from '../components/ArticleEdit.vue'
 import ArticleList from '../components/ArticleList.vue'
+import AdEdit from '../components/AdEdit.vue'
+import AdList from '../components/AdList.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +36,10 @@ const routes = [
       {path:'/articles/create',component:ArticleEdit},
       {path:'/articles/list',component:ArticleList},
       {path:'/articles/edit/:id',component:ArticleEdit,props:true},
+
+      {path:'/ads/create',component:AdEdit},
+      {path:'/ads/list',component:AdList},
+      {path:'/ads/edit/:id',component:AdEdit,props:true},
     ]
   },
   
