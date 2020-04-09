@@ -13,13 +13,13 @@ import AdEdit from '../components/AdEdit.vue'
 import AdList from '../components/AdList.vue'
 import AdminUserList from '../components/AdminUserList.vue'
 import AdminUserEdit from '../components/AdminUserEdit.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-
     name: 'Main',
     component: Main,
     children:[
@@ -48,6 +48,11 @@ const routes = [
       {path:'/admin_users/edit/:id',component:AdminUserEdit,props:true},
     ]
   },
+  {
+    path:'/login',
+    name:'login',
+    component:Login
+  }
   
 ]
 
