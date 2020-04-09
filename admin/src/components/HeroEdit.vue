@@ -172,27 +172,5 @@ export default {
 }
 </script>
 <style>
-  .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 78px;
-    height: 78px;
-    line-height: 78px;
-    text-align: center;
-  }
-  .avatar {
-    width: 78px;
-    height: 78px;
-    display: block;
-  }
+  
 </style>

@@ -5,7 +5,7 @@
             <el-form-item label="名称">
                 <el-input v-model="model.name"></el-input>
             </el-form-item>
-                <el-button type="text" @click="model.items.push({})"><i class="el-icon-plus"></i>添加广告</el-button>
+                <el-button @click="model.items.push({})" label="广告"><i class="el-icon-plus"></i>添加广告</el-button>
                 <el-row type="flex" style="flex-wrap:wrap">
                     <el-col :md="12" v-for="(item,index) in model.items" :key="index">
                         <el-form-item label="链接(URL)">
@@ -66,11 +66,7 @@ export default {
         },
         async fetch(){
             const res=await this.$http.get(`rest/ads/${this.id}`);
-            console.log(res.data);
-            console.log(this.model);
             this.model=res.data;
-            console.log(this.model);
-            
         },
         
     },
@@ -80,27 +76,5 @@ export default {
 }
 </script>
 <style>
-  .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 78px;
-    height: 78px;
-    line-height: 78px;
-    text-align: center;
-  }
-  .avatar {
-    width: 78px;
-    height: 78px;
-    display: block;
-  }
+  
 </style>

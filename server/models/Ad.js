@@ -11,3 +11,5 @@ const adSchema=new Schema({
 
 })
 module.exports=mongoose.model('Ad',adSchema)
+
+  

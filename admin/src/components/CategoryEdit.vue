@@ -54,7 +54,6 @@ export default {
         }
     },
     created(){
-        console.log(this.id)
         this.id && this.fetch()
         this.fetchParents();
     },
