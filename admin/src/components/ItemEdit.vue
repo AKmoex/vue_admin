@@ -8,7 +8,8 @@
             <el-form-item label="图标">
                 <el-upload
                     class="avatar-uploader"
-                    :action="$http.defaults.baseURL+'/upload'"
+                    :action="uploadUrl"
+                    :headers="getAuthHeader()"
                     :show-file-list="false"
                     :on-success="afterUpload">
                     <img v-if="model.icon" :src="model.icon" class="avatar">
@@ -59,7 +60,7 @@ export default {
         }
     },
     created(){
-        console.log(this.id)
+        //console.log(this.id)
         this.id && this.fetch()
     },
 }
