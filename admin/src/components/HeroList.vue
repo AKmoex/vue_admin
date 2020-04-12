@@ -35,8 +35,6 @@ export default {
         async fetch(){
             const res=await this.$http.get('rest/heroes')            
             this.items=res.data;
-            console.log(this.items);
-            
         },
         async deleteCategory(row){
             this.$confirm(`是否确定要删除该英雄${row.name}`, '提示', {
