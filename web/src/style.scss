@@ -1,146 +1,170 @@
 //init
-*{
+* {
     box-sizing: border-box;
     outline: none;
 }
-html{
+
+html {
     font-size: 13px;
 }
-body{
-    margin:0;
+
+body {
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.2em;
-    background-color: rgb(237,237,237);
+    background-color: rgb(237, 237, 237);
 }
-a{
-    color:#999
+
+a {
+    color: #999
 }
 
 //colors
-$colors:(
-    primary:#db9e3f,
+$colors:(primary:#db9e3f,
     "white":#fff,
     "light":#f9f9f9,
     "black":#000,
     "dark":#222,
     "dark-1":#343440,
-    "grey":#999
-);
-@each $colorKey,$color in $colors {
-    .text-#{$colorKey}{
-        color:$color
+    "grey":#999,
+    "grey-1":#666);
+
+@each $colorKey,
+$color in $colors {
+    .text-#{$colorKey} {
+        color: $color
     }
-    .background-#{$colorKey}{
-        color:$color
+
+    .bg-#{$colorKey} {
+        background-color: $color;
     }
 }
 
 //text
-@each $var in (left,center,right) {
-    .text-#{$var}{
+@each $var in (left, center, right) {
+    .text-#{$var} {
         text-align: $var;
     }
 }
 
 //font-size
 $base-font-size:1;
-$font-sizes:(
+$font-sizes:(xxs:.615385,
     xs:.769231,
     sm:.923077,
     md:1,
     lg:1.076923,
-    xl:1.230769
-);
-@each $sizeKey,$size in $font-sizes {
-    .fs-#{$sizeKey}{
-        font-size:$size*$base-font-size
+    xl:1.230769);
+
+@each $sizeKey,
+$size in $font-sizes {
+    .fs-#{$sizeKey} {
+        font-size: $size*$base-font-size
     }
 }
 
 //flex
-.d-flex{
-    display:flex;
+.d-flex {
+    display: flex;
 }
-.flex-column{
+
+.flex-column {
     flex-direction: column;
 }
-$flex-jc:(
-    start:flex-start,
+
+$flex-jc:(start:flex-start,
     end:flex-end,
     center:center,
     betwwen:space-between,
-    around:space-around
-);
-@each $key,$value in $flex-jc {
-    .jc-#{$key}{
+    around:space-around);
+
+@each $key,
+$value in $flex-jc {
+    .jc-#{$key} {
         justify-content: $value;
     }
 }
 
-$flex-ai:(
-    start:flex-start,
+$flex-ai:(start:flex-start,
     end:flex-end,
     center:center,
-    stretch:stretch
-);
-@each $key,$value in $flex-ai {
-    .ai-#{$key}{
+    stretch:stretch);
+
+@each $key,
+$value in $flex-ai {
+    .ai-#{$key} {
         align-items: $value;
     }
 }
-.flex-1{
-    flex:1
+
+.flex-1 {
+    flex: 1
 }
-.flex-grow-1{
-    flex-grow:1
+
+.flex-grow-1 {
+    flex-grow: 1
 }
 
 //margin padding
-$spacing-types:(
-    m:margin,
+$spacing-types:(m:margin,
     p:padding,
 );
-$spacing-directions:(
-    t:top,
+$spacing-directions:(t:top,
     r:right,
     b:bottom,
-    l:left
-);
+    l:left);
 $spacing-base-size:1rem;
-$spacing-sizes:(
-    0:0,
+$spacing-sizes:(0:0,
     1:0.25,
     2:0.5,
     3:1,
     4:1.5,
-    5:3
-);
-@each $typeKey,$type in $spacing-types {
+    5:3);
+
+@each $typeKey,
+$type in $spacing-types {
+
     //m-1
-    @each $sizeKey,$size in $spacing-sizes {
-        .#{$typeKey}-#{$sizeKey}{
-            #{$type}:$size*$spacing-base-size;
+    @each $sizeKey,
+    $size in $spacing-sizes {
+        .#{$typeKey}-#{$sizeKey} {
+            #{$type}: $size*$spacing-base-size;
         }
     }
+
     //mx-1,my-1
-    @each $sizeKey,$size in $spacing-sizes {
-        .#{$typeKey}x-#{$sizeKey}{
-            #{$type}-left:$size*$spacing-base-size;
-            #{$type}-right:$size*$spacing-base-size;
+    @each $sizeKey,
+    $size in $spacing-sizes {
+        .#{$typeKey}x-#{$sizeKey} {
+            #{$type}-left: $size*$spacing-base-size;
+            #{$type}-right: $size*$spacing-base-size;
         }
     }
-    @each $sizeKey,$size in $spacing-sizes {
-        .#{$typeKey}x-#{$sizeKey}{
-            #{$type}-left:$size*$spacing-base-size;
-            #{$type}-right:$size*$spacing-base-size;
+
+    @each $sizeKey,
+    $size in $spacing-sizes {
+        .#{$typeKey}x-#{$sizeKey} {
+            #{$type}-left: $size*$spacing-base-size;
+            #{$type}-right: $size*$spacing-base-size;
         }
     }
+
     //mt-1
-  @each $directionKey,$direction in $spacing-directions {
-    @each $sizeKey,$size in $spacing-sizes {
-        .#{$typeKey}#{$directionKey}-#{$sizeKey}{
-            #{$type}-#{$direction}:$size*$spacing-base-size;
+    @each $directionKey,
+    $direction in $spacing-directions {
+
+        @each $sizeKey,
+        $size in $spacing-sizes {
+            .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+                #{$type}-#{$direction}: $size*$spacing-base-size;
+            }
         }
     }
-  }  
+}
+
+//button
+.btn {
+    border: none;
+    border-radius: 0.153846rem;
+    font-size: map-get($font-sizes, 'sm')*$base-font-size
 }
