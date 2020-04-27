@@ -67,6 +67,7 @@
       </el-header>
 
       <el-main>
+        <!--默认根据组件区分,改为用路径区分-->
         <router-view :key="$route.path"></router-view>
       </el-main>
     </el-container>

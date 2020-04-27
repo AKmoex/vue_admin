@@ -25,3 +25,11 @@
     <router-view></router-view>
   </div>
 </template>
+<style lang="scss">
+//简单实现吸顶效果
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+</style>
