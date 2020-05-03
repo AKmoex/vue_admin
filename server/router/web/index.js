@@ -14,7 +14,6 @@ module.exports = (app) => {
         parent: parent,
       })
       .lean();
-    console.log(cats);
 
     const newsTitles = [
       "4月27日全服不停机优化公告",
@@ -33,6 +32,35 @@ module.exports = (app) => {
     await Article.deleteMany({});
     await Article.insertMany(newsList);
     res.send(newsList);
+  });
+  router.get("/news/list", async (req, res) => {
+    const parent = await Category.findOne({
+      name: "news",
+    });
+    const cats = await Category.aggregate([
+      { $match: { parent: parent._id } },
+      {
+        $lookup: {
+          from: "articles",
+          localField: "_id",
+          foreignField: "categories",
+          as: "newsList",
+        },
+      },
+      {
+        $addFields: {
+          newsList: { $slice: ["$newsList", 5] },
+        },
+      },
+    ]);
+    cats.map((cat) => {
+      cat.newsList.map((news) => {
+        news.categoryName = cat.name;
+        return news;
+      });
+      return cat;
+    });
+    res.send(cats);
   });
   app.use("/web/api", router);
 };

@@ -3,17 +3,20 @@
     <div class="nav jc-betwwen">
       <div
         class="nav-item"
-        :class="{active:i===active}"
-        v-for="(category,i) in categories"
+        :class="{ active: i === active }"
+        v-for="(category, i) in categories"
         :key="i"
-        @click="active=i"
+        @click="$refs.list.swiper.swiperTo(i)"
       >
-        <div class="nav-link">{{category.name}}</div>
+        <div class="nav-link">{{ category.name }}</div>
       </div>
     </div>
     <div class="pt-3">
-      <swiper>
-        <swiper-slide v-for="(category,i) in categories" :key="i">
+      <swiper
+        ref="list"
+        @slide-change="() => (active = $refs.list.swiper.realIndex)"
+      >
+        <swiper-slide v-for="(category, i) in categories" :key="i">
           <slot name="items" :category="category"></slot>
         </swiper-slide>
       </swiper>
